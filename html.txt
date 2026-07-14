@@ -1,0 +1,26 @@
+
+<html>
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+<h1>Working with DOM Methods</h1>
+
+<input type="text" id="t1"/>
+<button onclick="click_btn()">click me</button>
+<br><br>
+<kmce></kmce>
+<script>
+function click_btn(){
+    var val = document.getElementById("t1").value;
+    alert(val + " Welcome to my page");
+}
+
+window.onload=function(){
+    document.querySelector("Kmce").innerHTML="Welcome to KMCE";
+};
+</script>
+</body>
+</html>

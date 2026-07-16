@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Methods Demo</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        margin:20px;
+        background:#f4f4f4;
+    }
+
+    h1{
+        text-align:center;
+    }
+
+    .student-card{
+        background:white;
+        border:2px solid #ccc;
+        padding:15px;
+        margin:10px 0;
+        border-radius:8px;
+    }
+
+    .highlight{
+        background-color:yellow;
+    }
+
+    button{
+        margin:5px;
+        padding:10px 15px;
+        cursor:pointer;
+    }
+
+    #output{
+        margin-top:20px;
+        padding:15px;
+        border:2px solid #333;
+        background:white;
+        white-space:pre-line;
+        min-height:80px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>DOM Selection Methods Demo</h1>
+
+<div class="student-card" id="student1">
+    <h3>Rahul</h3>
+    <p>Computer Science</p>
+</div>
+
+<div class="student-card" id="student2">
+    <h3>Anjali</h3>
+    <p>Electronics</p>
+</div>
+
+<div class="student-card" id="student3">
+    <h3>Priya</h3>
+    <p>Mechanical</p>
+</div>
+
+<button onclick="demoGetElementById()">getElementById()</button>
+
+<button onclick="demoGetElementsByClassName()">
+getElementsByClassName()
+</button>
+
+<button onclick="demoGetElementsByTagName()">
+getElementsByTagName()
+</button>
+
+<button onclick="demoQuerySelector()">
+querySelector()
+</button>
+
+<button onclick="demoQuerySelectorAll()">
+querySelectorAll()
+</button>
+
+<button onclick="resetPage()">Reset</button>
+
+<div id="output">
+Click any button to see the result here.
+</div>
+
+<script>
+
+function showOutput(message){
+    document.getElementById("output").innerText = message;
+}
+
+function demoGetElementById(){
+
+    resetPage();
+
+    let card = document.getElementById("student1");
+
+    card.classList.add("highlight");
+
+    showOutput(
+        "Method: getElementById()\n\n" +
+        "It selects a single element using its unique ID.\n\n" +
+        "ID selected: student1"
+    );
+}
+
+function demoGetElementsByClassName(){
+
+    resetPage();
+
+    let cards = document.getElementsByClassName("student-card");
+
+    for(let i=0;i<cards.length;i++){
+        cards[i].classList.add("highlight");
+    }
+
+    showOutput(
+        "Method: getElementsByClassName()\n\n" +
+        "It selects all elements having the same class name.\n\n" +
+        "Class selected: student-card\n" +
+        "Number of student cards selected: " + cards.length
+    );
+}
+
+function demoGetElementsByTagName(){
+
+    resetPage();
+
+    let paragraphs = document.getElementsByTagName("p");
+
+    for(let i=0;i<paragraphs.length;i++){
+        paragraphs[i].style.color="blue";
+        paragraphs[i].style.fontWeight="bold";
+    }
+
+    showOutput(
+        "Method: getElementsByTagName()\n\n" +
+        "It selects all elements by tag name.\n\n" +
+        "Tag selected: p\n" +
+        "Number of paragraph tags selected: " + paragraphs.length
+    );
+}
+
+function demoQuerySelector(){
+
+    resetPage();
+
+    let card = document.querySelector(".student-card");
+
+    card.classList.add("highlight");
+
+    showOutput(
+        "Method: querySelector()\n\n" +
+        "It selects the first element matching a CSS selector.\n\n" +
+        "Selector used: .student-card"
+    );
+}
+
+function demoQuerySelectorAll(){
+
+    resetPage();
+
+    let cards = document.querySelectorAll(".student-card");
+
+    cards.forEach(function(card){
+        card.style.border="3px solid green";
+    });
+
+    showOutput(
+        "Method: querySelectorAll()\n\n" +
+        "It selects all elements matching a CSS selector.\n\n" +
+        "Selector used: .student-card\n" +
+        "Number of elements selected: " + cards.length
+    );
+}
+
+function resetPage(){
+
+    let cards=document.querySelectorAll(".student-card");
+
+    cards.forEach(function(card){
+        card.classList.remove("highlight");
+        card.style.border="2px solid #ccc";
+    });
+
+    let paragraphs=document.querySelectorAll("p");
+
+    paragraphs.forEach(function(p){
+        p.style.color="";
+        p.style.fontWeight="";
+    });
+
+    document.getElementById("output").innerText=
+    "Click any button to see the result here.";
+}
+
+</script>
+
+</body>
+</html>

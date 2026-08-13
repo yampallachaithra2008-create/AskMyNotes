@@ -1,74 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FastAPI Feedback Form</title>
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 50px;
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
         }
 
-        .container {
-            width: 350px;
+        body{
+            background:#f5f5f5;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
         }
 
-        h2 {
-            margin-bottom: 20px;
+        .container{
+            width:450px;
+            background:white;
+            padding:30px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+            border-radius:5px;
+        }
+
+        h1{
+            margin-bottom:20px;
+            font-size:32px;
         }
 
         input,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
+        textarea{
+            width:100%;
+            padding:12px;
+            margin-bottom:15px;
+            border:1px solid #ccc;
+            font-size:16px;
         }
 
-        textarea {
-            resize: none;
-            height: 80px;
+        textarea{
+            resize:none;
+            height:90px;
         }
 
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #444;
-            color: white;
-            border: none;
-            cursor: pointer;
+        button{
+            width:100%;
+            padding:12px;
+            background:#333;
+            color:white;
+            border:none;
+            font-size:18px;
+            cursor:pointer;
         }
 
-        button:hover {
-            background-color: #222;
+        button:hover{
+            background:#555;
         }
 
-        #response {
-            margin-top: 20px;
+        h2{
+            margin-top:25px;
+            margin-bottom:10px;
+        }
+
+        #response{
+            background:#f2f2f2;
+            height:40px;
+            border-radius:3px;
+            padding:10px;
         }
     </style>
+
 </head>
+
 <body>
 
-<div class="container">
-    <h2>FastAPI Feedback Form</h2>
+    <div class="container">
 
-    <form>
-        <input type="text" placeholder="Student Name" required>
+        <h1>FastAPI Feedback Form</h1>
 
-        <input type="text" placeholder="Topic" required>
+        <form>
 
-        <input type="number" placeholder="Rating 1 to 5" min="1" max="5" required>
+            <input
+                type="text"
+                placeholder="Student Name"
+                required
+            >
 
-        <textarea placeholder="Comment"></textarea>
+            <input
+                type="text"
+                placeholder="Topic"
+                required
+            >
 
-        <button type="submit">Submit Feedback</button>
-    </form>
+            <input
+                type="number"
+                placeholder="Rating 1 to 5"
+                min="1"
+                max="5"
+                required
+            >
 
-    <div id="response">
-        <h3>Response</h3>
+            <textarea
+                placeholder="Comment"
+                required
+            ></textarea>
+
+            <button type="submit">
+                Submit Feedback
+            </button>
+
+        </form>
+
+        <h2>Response</h2>
+
+        <div id="response"></div>
+
     </div>
-</div>
 
 </body>
 </html>

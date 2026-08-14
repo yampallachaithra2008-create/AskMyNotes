@@ -36,7 +36,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:7860/predict",
+        "http://127.0.0.1:8000/ask",
         {
           method: "POST",
           headers: {
